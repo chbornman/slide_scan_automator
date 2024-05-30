@@ -5,13 +5,12 @@
 #include <Arduino.h>
 
 // Define GPIO pins
-#define SLIDE_ADVANCE_PIN 11   
-#define AC_DC_LOW_PIN 12   
-#define AC_DC_HIGH_PIN 13   
+#define SLIDE_ADVANCE_PIN 2  
+
 
 // Adjustable delays (in milliseconds)
 #define DELAY_AFTER_SHUTTER 1000  // Delay before taking a photo
-#define DELAY_AFTER_ADVANCE 1750   // Delay after taking a photo before advancing the slide
+#define DELAY_AFTER_ADVANCE 2500   // Delay after taking a photo before advancing the slide
 #define RELAY_ON_TIME 250        // Time in ms the relay stays on to advance the slide
 #define DELAY_NO_BT_RECHECK 1000
 
@@ -24,10 +23,6 @@ void setup() {
   // Configure GPIO pins
   pinMode(SLIDE_ADVANCE_PIN, OUTPUT);
   digitalWrite(SLIDE_ADVANCE_PIN, LOW);
-  pinMode(AC_DC_LOW_PIN, OUTPUT);
-  digitalWrite(AC_DC_LOW_PIN, LOW);
-  pinMode(AC_DC_HIGH_PIN, OUTPUT);
-  digitalWrite(AC_DC_HIGH_PIN, HIGH);
 
   Serial.println("Starting BLE work!");
   bleMouse.begin();
